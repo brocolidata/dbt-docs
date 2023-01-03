@@ -14,17 +14,17 @@ defaults:
 jobs:
   release_data_catalog:
     name: 'Release dbt-docs'
-    # if: startsWith(github.ref, 'generate/v')
+    # if: startsWith(github.head_ref, 'generate/v')
     runs-on: ubuntu-latest
     steps:
 
       - name: 'First debug'
-        run: echo ${{ github.ref }}
+        run: echo ${{ github.head_ref }}
 
       - name: 'Split branch name'
         id: get_tag_version        
         env:
-          BRANCH: ${{ github.ref }}
+          BRANCH: ${{ github.head_ref }}
         run: |
           echo "RELEASE_VERSION=${BRANCH##generate/}"  >> $GITHUB_ENV
           echo ${{ env.RELEASE_VERSION }}
