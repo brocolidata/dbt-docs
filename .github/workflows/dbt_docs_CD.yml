@@ -18,9 +18,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      - name: 'Git Checkout'
-        uses: actions/checkout@v3
-
       - name: 'First debug'
         run: echo ${{ github.ref }}
 
@@ -31,6 +28,9 @@ jobs:
         run: |
           echo "RELEASE_VERSION=${BRANCH##generate/}"  >> $GITHUB_ENV
           echo ${{ env.RELEASE_VERSION }}
+
+      - name: 'Git Checkout'
+        uses: actions/checkout@v3
         
         
       - name: 'Install submodules'
