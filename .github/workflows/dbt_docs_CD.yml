@@ -14,12 +14,15 @@ defaults:
 jobs:
   release_data_catalog:
     name: 'Release dbt-docs'
-    if: startsWith(github.base_ref, 'generate/v')
+    # if: startsWith(github.base_ref, 'generate/v')
     runs-on: ubuntu-latest
     steps:
 
       - name: 'Git Checkout'
         uses: actions/checkout@v3
+
+      - name: 'First debug'
+        run: echo ${{ github.base_ref }}
 
       - name: 'Split branch name'
         id: get_tag_version        
