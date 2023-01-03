@@ -66,8 +66,8 @@ jobs:
         id: create_release
         uses: softprops/action-gh-release@v1
         with:
-          name: Data Catalog ${{ env.RELEASE_VERSION}} "
-          tag_name: "datacatalog_${{ env.RELEASE_VERSION}} "
+          name: "Data Catalog ${{ env.RELEASE_VERSION}}"
+          tag_name: "datacatalog_${{ env.RELEASE_VERSION}}"
           generate_release_notes: true
           files: dist/index.html
 
